@@ -44,7 +44,7 @@ The library is especially useful for narrative games where atmosphere and intera
 
 Ensure that you have Python 3.6 or above installed. To use the library, simply import it into your project:
 
-```terminal
+```bash
 pip install imagegamepy
 ```
 ## Function Reference
@@ -54,10 +54,11 @@ Initializes the game screen with a specified background image, background color,
 
 Signature:
 
-python
+```python
 Copy
 Edit
 body(addresses, background_color, warm_value, noise=noise(randomness_factor, noise_pattern, blur_factor))
+```
 addresses: Path or list of paths to the background image.
 
 background_color: RGB tuple (e.g., (0, 0, 0)).
@@ -72,10 +73,11 @@ Displays dialog text on the screen.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 dialog(text, speed, position, text_color, dialog_box_color)
+```
 text: The text to display.
 
 speed: The speed at which the text appears.
@@ -92,20 +94,22 @@ Closes the dialog box. It is typically triggered when the user presses the entry
 
 Example:
 
-python
+```python
 Copy
 Edit
 game.close_text_box()
-options
+```
+## options
 Usage:
 Displays a list of options and handles input through arrow keys and the enter key. It can also save the selected option into a JSON file.
 
 Signature:
 
-## python
+```python
 Copy
 Edit
 options([l1, l2, ...], dialog_box_color, text, color, save_type='json', id)
+```
 [l1, l2, ...]: List of option strings.
 
 dialog_box_color: Color for the dialog box.
@@ -120,7 +124,7 @@ id: Identifier for the choice, which can be used to reference story branches.
 
 Saved JSON Structure Example:
 
-json
+```json
 Copy
 Edit
 [
@@ -131,6 +135,7 @@ Edit
     ...
   ]}
 ]
+```
 ## return_option
 Usage:
 Retrieves the current interface option or story element by id.
@@ -147,10 +152,11 @@ Loads multimedia files such as PNG, GIF, videos, and audio.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 load(type, setting, address)
+```
 type: One of png, gif, videos, or audio.
 
 setting:
@@ -169,10 +175,11 @@ Changes the background color of the game.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 set_background_color(color)
+```
 color: The new background color (e.g., '#000000').
 
 ## set_background_image
@@ -181,10 +188,11 @@ Changes the background image of the game.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 set_background_image(address)
+```
 address: Path to the new background image.
 
 ## set_warm
@@ -193,10 +201,11 @@ Adjusts the warm value of the game’s scene.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 set_warm(warm_value, changing_speed)
+```
 warm_value: An integer between -100 and 100.
 
 changing_speed: The speed of transition for the warmth setting.
@@ -207,11 +216,12 @@ Configures the noise effect for the scene.
 
 Signature:
 
-python
+```python
 Copy
 Edit
 set_noise_params(randomness_factor, noise_pattern, blur_factor)
 randomness_factor: Determines noise intensity.
+```
 
 noise_pattern: Pattern type (HL for horizontal, VL for vertical, CL for circular line noise).
 
@@ -219,7 +229,7 @@ blur_factor: Amount of blur applied to the noise.
 
 ## Usage Examples
 Basic Initialization and Dialog
-python
+```python
 Copy
 Edit
 from imagegamepy import body, noise
@@ -254,10 +264,10 @@ game.load('png', setting=[1.0, (100, 200)], address="C:\\Images\\background.png"
 
 # Load audio with volume setting
 game.load('audio', setting=10, address="C:\\Music\\theme.mp3")
+```
 ## Advanced Example: Interactive Story Timeline
 Below is a comprehensive example that integrates multiple functions to create a narrative-driven game. This example demonstrates how to set up dynamic backgrounds, progressive dialogs, option handling, and story branching.
-
-python
+```python
 Copy
 Edit
 from imagegamepy import body, noise
@@ -285,17 +295,14 @@ def chapter_1():
         while not game.is_key_pressed('enter'):
             time.sleep(0.1)
         game.close_text_box()
-    
     # Display final dialog and options for chapter branching
     game.dialog('Agent:\n"Let’s Go. There is everything you will need in the house."', speed=35, position='center', text_color='#8B0000', dialog_box_color='black')
     time.sleep(8)
     game.dialog('You:\n"(One agent has a pistol; I may need it, he is not looking here)"', speed=35, position='center', text_color='#8B0000', dialog_box_color='black')
     time.sleep(8)
     game.close_text_box()
-    
     options_list = ["Steal it.", "No. I don’t need it for now"]
     game.options(options_list, dialog_box_color='#2F4F4F', text='Choose your action:', color='antiquewhite', save_type='json', id='chapter1')
-    
     choice = game.return_option(id='chapter1')
     if "No" in choice:
         chapter_2a()
@@ -350,6 +357,7 @@ def main_timeline():
         time.sleep(6)
         game.close_text_box()
         chapter_1()
+```
 
 # Start the game loop in a separate thread
 threading.Thread(target=main_timeline, daemon=True).start()
