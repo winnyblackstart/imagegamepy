@@ -75,8 +75,9 @@ Displays dialog text on the screen.
 
 Signature:
 
-```
-python
+```python
+Copy
+Edit
 
 dialog(text, speed, position, text_color, dialog_box_color)
 ```
@@ -96,8 +97,9 @@ Closes the dialog box. It is typically triggered when the user presses the entry
 
 Example:
 
-```
-python
+```python
+Copy
+Edit
 
 game.close_text_box()
 ```
@@ -107,8 +109,9 @@ Displays a list of options and handles input through arrow keys and the enter ke
 
 Signature:
 
-```
-python
+```python
+Copy
+Edit
 
 options([l1, l2, ...], dialog_box_color, text, color, save_type='json', id)
 ```
@@ -126,9 +129,9 @@ id: Identifier for the choice, which can be used to reference story branches.
 
 Saved JSON Structure Example:
 
-```
-json
-
+```json
+Copy
+Edit
 [
   {"interface": ["start", "menu"], "choice": "start"},
   {"story": [
@@ -154,8 +157,9 @@ Loads multimedia files such as PNG, GIF, videos, and audio.
 
 Signature:
 
-```
-python
+```python
+Copy
+Edit
 
 load(type, setting, address)
 ```
@@ -177,8 +181,9 @@ Changes the background color of the game.
 
 Signature:
 
-```
-python
+```python
+Copy
+Edit
 
 set_background_color(color)
 ```
@@ -190,8 +195,9 @@ Changes the background image of the game.
 
 Signature:
 
-```
-python
+```python
+Copy
+Edit
 
 set_background_image(address)
 ```
@@ -203,9 +209,9 @@ Adjusts the warm value of the game’s scene.
 
 Signature:
 
-```
-python
-
+```python
+Copy
+Edit
 set_warm(warm_value, changing_speed)
 ```
 warm_value: An integer between -100 and 100.
@@ -218,8 +224,9 @@ Configures the noise effect for the scene.
 
 Signature:
 
-```
-python copy
+```python
+Copy
+Edit
 
 set_noise_params(randomness_factor, noise_pattern, blur_factor)
 ```
@@ -231,8 +238,9 @@ blur_factor: Amount of blur applied to the noise.
 
 ## Usage Examples
 Basic Initialization and Dialog
-```
-python
+```python
+Copy
+Edit
 
 from imagegamepy import body, noise
 
@@ -248,8 +256,9 @@ while not game.is_key_pressed('enter'):
 game.close_text_box()
 ```
 Displaying Options
-```
-python
+```python
+Copy
+Edit
 
 # Display options to the user with a JSON save type
 options_list = ["Option 1", "Option 2", "Option 3"]
@@ -260,8 +269,9 @@ selected_option = game.return_option(id='main_menu')
 print("Selected option:", selected_option)
 Loading Multimedia Elements
 ```
-```
-python
+```python
+Copy
+Edit
 
 # Load an image with specified scale and position settings
 game.load('png', setting=[1.0, (100, 200)], address="C:\\Images\\background.png")
@@ -271,8 +281,9 @@ game.load('audio', setting=10, address="C:\\Music\\theme.mp3")
 ```
 ## Advanced Example: Interactive Story Timeline
 Below is a comprehensive example that integrates multiple functions to create a narrative-driven game. This example demonstrates how to set up dynamic backgrounds, progressive dialogs, option handling, and story branching.
-```
-python
+```python
+Copy
+Edit
 
 from imagegamepy import body, noise
 import threading
