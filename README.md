@@ -46,7 +46,6 @@ Ensure that you have Python 3.6 or above installed. To use the library, simply i
 
 ```bash 
 Copy
-Edit
 
 pip install imagegamepy
 ```
@@ -59,7 +58,6 @@ Signature:
 
 ```python
 Copy
-Edit
 
 body(addresses, background_color, warm_value, noise=noise(randomness_factor, noise_pattern, blur_factor))
 ```
