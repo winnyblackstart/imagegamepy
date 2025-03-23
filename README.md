@@ -254,7 +254,7 @@ game.load('png', setting=[1.0, (100, 200)], address="C:\\Images\\background.png"
 
 # Load audio with volume setting
 game.load('audio', setting=10, address="C:\\Music\\theme.mp3")
-Advanced Example: Interactive Story Timeline
+## Advanced Example: Interactive Story Timeline
 Below is a comprehensive example that integrates multiple functions to create a narrative-driven game. This example demonstrates how to set up dynamic backgrounds, progressive dialogs, option handling, and story branching.
 
 python
@@ -355,4 +355,4 @@ def main_timeline():
 threading.Thread(target=main_timeline, daemon=True).start()
 game.start()
 ## License
-Distributed under the Apache 2.0. See LICENSE for more information.
+Distributed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). See LICENSE for more information.
