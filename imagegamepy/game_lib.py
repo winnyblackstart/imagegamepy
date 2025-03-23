@@ -1,7 +1,8 @@
 import tkinter as tk
 from PIL import Image, ImageTk, ImageFilter, ImageDraw, ImageSequence, ImageOps
-import random, json, os
+import random, json, os, keyboard
 from pygame import mixer
+from ffpyplayer.player import MediaPlayer
 import numpy as np
 
 class StoryWindow:
@@ -52,6 +53,7 @@ class StoryWindow:
         # Initialize pygame mixer for audio if available
         if mixer:
             mixer.init()
+        self.gameData()
 
     def gameData(self):
         GAME_FILE = 'gamedata.json'
@@ -66,6 +68,16 @@ class StoryWindow:
                 return data
         except json.JSONDecodeError:
             return []
+
+
+    def is_key_pressed(self, key):
+        """
+    Checks if a specific key is currently pressed.
+    
+    :param key: The key to check (e.g., 'enter', 'a', 'space', etc.).
+    :return: True if the key is pressed, False otherwise.
+    """
+        return keyboard.is_pressed(key)
 
     def resize_image(self, event):
         new_width, new_height = event.width, event.height
@@ -230,7 +242,7 @@ class StoryWindow:
             self.canvas.delete(self.dialog_text)
             self.dialog_text = None
 
-    def option(self, option_list, option_background_color, option_list_color, save_type='default', id='interface'):
+    def option(self, option_list, option_background_color='', option_list_color='', save_type='default', id='interface'):
         self.canvas.update()  # Ensure canvas dimensions are updated
         canvas_width = self.canvas.winfo_width()
         canvas_height = self.canvas.winfo_height()
@@ -299,6 +311,12 @@ class StoryWindow:
             data = json.load(g)
         if id is None or id == '':
             return data[0].get("choice")
+        elif id == 'checkmem':
+            story_list = data[1].get("story", [])
+            if story_list:
+                return story_list[-1].get("id")  # Return the last executed option ID
+            else:
+                return None
         else:
             story_list = data[1].get("story", [])
             for item in story_list:
@@ -332,7 +350,7 @@ class StoryWindow:
             sound = mixer.Sound(address)
             if l == 'l':
                 sound = mixer.Sound(address)
-                sound.set_volume(50 / 100.0)
+                sound.set_volume(settings / 100.0)
                 sound.play(loops=-1)
             else:
                 sound.set_volume(settings / 100.0)
@@ -376,8 +394,6 @@ class StoryWindow:
             if not (isinstance(settings[0], int) and 0 <= settings[0] <= 100):
                 raise ValueError("Video volume must be an integer between 0 and 100.")
             self.video_settings = {"volume": settings[0], "scale": settings[1], "position": settings[2], "file": address}
-            # Use ffpyplayer for video playback
-            from ffpyplayer.player import MediaPlayer
             self.video_player = MediaPlayer(address, ff_opts={'paused': False, 'out_fmt': 'rgb24', 'volume': settings[0]/100.0})
             self.update_video()
             return f"Video file '{address}' loaded with volume {settings[0]}, scale {settings[1]}, and position {settings[2]}"
