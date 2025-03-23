@@ -45,9 +45,6 @@ The library is especially useful for narrative games where atmosphere and intera
 Ensure that you have Python 3.6 or above installed. To use the library, simply import it into your project:
 
 ```bash
-
-Copy
-
 pip install imagegamepy
 ```
 ## Function Reference
@@ -58,8 +55,6 @@ Initializes the game screen with a specified background image, background color,
 Signature:
 
 ```python
-Copy
-
 body(addresses, background_color, warm_value, noise=noise(randomness_factor, noise_pattern, blur_factor))
 ```
 addresses: Path or list of paths to the background image.
@@ -77,8 +72,6 @@ Displays dialog text on the screen.
 Signature:
 
 ```python
-
-
 
 dialog(text, speed, position, text_color, dialog_box_color)
 ```
@@ -99,8 +92,6 @@ Closes the dialog box. It is typically triggered when the user presses the entry
 Example:
 
 ```python
-Copy
-Edit
 
 game.close_text_box()
 ```
