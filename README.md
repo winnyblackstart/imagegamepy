@@ -57,7 +57,7 @@ Initializes the game screen with a specified background image, background color,
 Signature:
 
 ```python
-Copy
+                                                                                                                                                                     Copy
 
 body(addresses, background_color, warm_value, noise=noise(randomness_factor, noise_pattern, blur_factor))
 ```
