@@ -44,9 +44,9 @@ The library is especially useful for narrative games where atmosphere and intera
 
 Ensure that you have Python 3.6 or above installed. To use the library, simply import it into your project:
 
-```bash [![Edit](https://img.shields.io/badge/-Edit-green)](https://www.example.com/edit)
-[![Copy](https://img.shields.io/badge/-Copy-blue)](https://shield.io/clipboard?text=python)
-
+```bash 
+Copy
+Edit
 
 pip install imagegamepy
 ```
@@ -60,6 +60,7 @@ Signature:
 ```python
 Copy
 Edit
+
 body(addresses, background_color, warm_value, noise=noise(randomness_factor, noise_pattern, blur_factor))
 ```
 addresses: Path or list of paths to the background image.
@@ -133,6 +134,7 @@ Saved JSON Structure Example:
 ```json
 Copy
 Edit
+
 [
   {"interface": ["start", "menu"], "choice": "start"},
   {"story": [
@@ -213,6 +215,7 @@ Signature:
 ```python
 Copy
 Edit
+
 set_warm(warm_value, changing_speed)
 ```
 warm_value: An integer between -100 and 100.
