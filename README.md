@@ -43,7 +43,7 @@ The library is especially useful for narrative games where atmosphere and intera
 ## Installation
 
 Ensure that you have Python 3.6 or above installed. To use the library, simply import it into your project:
-<sub>📋 Copy this function:</sub>
+
 ```bash
 
 Copy
@@ -77,8 +77,6 @@ Displays dialog text on the screen.
 Signature:
 
 ```python
-Copy
-<sub>📋 Copy this function:</sub>
 
 
 
