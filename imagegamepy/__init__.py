@@ -1,1 +1,1 @@
-from game_lib import *
+from .game_lib import *
