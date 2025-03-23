@@ -45,7 +45,7 @@ The library is especially useful for narrative games where atmosphere and intera
 Ensure that you have Python 3.6 or above installed. To use the library, simply import it into your project:
 
 ```terminal
-from imagegamepy import body, noise
+pip install imagegamepy
 ```
 ## Function Reference
 ## body
