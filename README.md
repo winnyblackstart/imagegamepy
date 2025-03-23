@@ -216,12 +216,12 @@ Configures the noise effect for the scene.
 
 Signature:
 
-```python
+```python copy
 Copy
 Edit
 set_noise_params(randomness_factor, noise_pattern, blur_factor)
-randomness_factor: Determines noise intensity.
 ```
+randomness_factor: Determines noise intensity.
 
 noise_pattern: Pattern type (HL for horizontal, VL for vertical, CL for circular line noise).
 
@@ -244,7 +244,9 @@ game.dialog("Welcome to the game!", speed=35, position='bottom left', text_color
 while not game.is_key_pressed('enter'):
     pass
 game.close_text_box()
+```
 Displaying Options
+```
 python
 Copy
 Edit
@@ -256,7 +258,8 @@ game.options(options_list, dialog_box_color='#2F4F4F', text="Choose your action:
 selected_option = game.return_option(id='main_menu')
 print("Selected option:", selected_option)
 Loading Multimedia Elements
-python
+```
+```python
 Copy
 Edit
 # Load an image with specified scale and position settings
